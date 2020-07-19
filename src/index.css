@@ -1,0 +1,17 @@
+body {
+  background-image: url("WhatsApp Image 2020-07-15 at 22.14.21.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: cover;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
