@@ -1,81 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Expenses Record
 
+> Expense Record is a simple expense tracking application. Allows you to monitor your spending pattern.
 
-## Discription
+## Team
 
-web application that will allow users to search for any books by entering a query (Title, Author, etc). And display the resulting books in a list on the page with all the corresponding data.using google book API and make list about favorite book and which book you want to read later and you can remove also book and you can read the book online .
+- **Product Owner**: RBK
+- **Scrum Master**: Khaled Abousheikh
+- **Development Team Members**: Fatima Aburashed, Abedurhaman Abusamhadana , Razan Abu kemil , Mohammed Albelibisi , Khaled Abousheikh
 
-Also, the application has a user registration and login page to create user-specific accounts
+## Table of Contents
 
-## Available Scripts
+1. [Usage](#Usage)
+2. [Requirements](#requirements)
+3. [Development](#development)
 
-In the project directory, you can run:
+   i. [Installing Dependencies](#installing-dependencies)
+   ii. [Tasks](#tasks)
 
+4. [Contributing](#contributing)
 
+## Usage
 
-### `nodemon indexServer.js`
+Simply register a new account and then login. start recording your expenses.
 
-Run the server in finalEdit/server
+> Some usage instructions
 
-### `npm start`
+## Requirements
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- MongoDB and Atlas MongoDB
+- mongoose
+- Node
+- Express
+- React
+- axios
+- bcrypt
+- cors
+- jsonwebtoken
+- jwt-decode
+- react
+- react-bootstrap
+- react-dom
+- react-router-dom
+- react-scripts
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Development
 
-### `npm test`
+Heroku deployed link :
+https://expenses-tracker-2020.herokuapp.com/
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installing Dependencies
 
-### `npm run build`
+From within the root directory:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+npm install
+npm run s (running react App)
+npm run server (running server)
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Roadmap
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+View the project roadmap [here](https://github.com/rbk-WeekOff-Project-GroupSix/rbk-WeekOff-Project-GroupSix/issues)
 
-### `npm run eject`
+## Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+See [CONTRIBUTING.md](https://github.com/rbk-WeekOff-Project-GroupSix/rbk-WeekOff-Project-GroupSix/blob/dev/_CONTRIBUTING.md) for contribution guidelines.

@@ -1,0 +1,122 @@
+/* .myDiv {
+  text-align: center;
+}
+
+.Home {
+  text-align: center;
+}
+
+.Home {
+  text-align: center;
+}
+
+.Home-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Home-logo {
+    animation: Home-logo-spin infinite 20s linear;
+  }
+}
+
+.Home-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Home-link {
+  color: #61dafb;
+}
+
+@keyframes Home-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+Home {
+  text-align: center;
+  margin-top: 300px;
+  background-color: dodgerblue;
+  height: 800px;
+  width: 100%;
+}
+Home.img {
+  width: 350px;
+  height: 350px;
+  border: 8px solid red;
+}
+.Home-logo {
+  animation: Home-logo-spin infinite 20s linear;
+  height: 80px;
+  border: 8px solid red;
+}
+
+.Home-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+  border: 8px solid red;
+}
+
+.Home-title {
+  font-size: 1.5em;
+}
+
+.Home-intro {
+  font-size: large;
+}
+
+@keyframes Home-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Home {
+  text-align: center;
+}
+
+.Home-logo {
+  animation: Home.Home-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.Home-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.Home-title {
+  font-size: 1.5em;
+}
+
+.Home-intro {
+  font-size: large;
+}
+
+@keyframes Home.Home-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */

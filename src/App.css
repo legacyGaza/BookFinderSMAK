@@ -1,283 +1,104 @@
-/* themain search button */
-.logemailandpassword {
-  margin-top: 10px;
-  width: 35%;
-  padding: 15px 20px;
-  border-radius: 5px;
-  background-color: white;
-  size: 100px;
-  /* border-color: black; */
-  /* font-weight: bold; */
-  box-shadow: 20 20px 20px -20px #333;
-}
-/*the second part of app name*/
-#finder {
-  color: blue;
-}
-/*position & styling for the of app*/
-#header {
-  text-align: left;
-  margin-left: 15px;
-  font-size: xx-large;
-}
-/*css for login card*/
-.loginform {
-  width: 400px;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
-  background: #fff;
-  padding: 20px;
-  margin: 8% auto 0;
-  text-align: center;
-  margin-left: 50%;
-}
-
-/*the header inside login card*/
-.loginform h1 {
-  color: #1c8abd;
-  margin-bottom: 15px;
-}
-
-/*all input for loginand register*/
-.inputbox {
-  border-radius: 20px;
-  padding: 12px;
-  margin: 10px 0;
-  width: 90%;
-  border: 1px solid #999;
-  outline: none;
-}
-
-/*for favorite and read list button */
-.butooon {
-  color: white;
-  background-color: #1c8abd;
-  width: 90%;
-  padding: 10px;
-  border-radius: 20px;
-  font-size: 15px;
-  margin: 10px 0;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
-
-#hrtwo {
-  border: none;
-  height: 200px;
-  width: 100%;
-  height: 50px;
-  border-bottom: 1px solid black;
-  box-shadow: 0 10px 10px -10px;
-  margin: -50px auto 10px;
-  margin-top: 1%;
-  size: 25x;
-}
-
-/*style about links*/
-#links {
-  float: right;
-  margin-top: -45px;
-}
-
-
-#search {
+.myDiv {
   text-align: center;
 }
 
-/*size of book img*/
-#img {
-  border-radius: 50%;
-}
-/*the inout inside register card*/
-.reginform {
-  text-align: center;
-  margin-top: 7%;
-  margin-left: 30%;
-}
-/*login button*/
-.loginbutton {
-  width: 10%;
-  height: 10%;
-  padding: 15px 20px;
-  border: none;
-  border-radius: 15px;
-  background-color: dodgerblue;
-  font-weight: bold;
-  color: white;
-  margin-top: 10px;
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-#inpt {
-  border-radius: 25px;
-  border-color: cadetblue;
-  border: none;
-}
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 10px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #e3e3e3;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h5{
+    font-family: "Comic Sans MS", cursive, sans-serif; 
+  position: center;
+  font-size: 10px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-image: url(Untitled-1.jpg);
+ 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Lato", sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+ 
+
+h1 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+
+  letter-spacing: 1px;
+  margin: 0;
+}
+h2 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+
+  letter-spacing: 1px;
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h3 {
+  border-bottom: 4px solid #bbb;
+  padding-bottom: 10px;
+  margin: 40px 0 10px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+
 }
 
-/*for the input and button seacrh*/
-.buttonIn {
-  width: 300px;
-  position: relative;
-  margin-left: 500px;
+h4 {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  margin: 0;
+  text-transform: uppercase;
 }
-/*input search*/
-#inpt {
-  margin: 0px;
-  padding: 23px;
-  width: 450px;
-  outline: none;
-  height: 46px;
-  border-radius: 5px;
-  border-radius: 10px;
-  background-color: white;
-  font-size: 15px;
+
+label {
+  font-size: 12px;
+  display: inline-block;
+  margin: 10px 0;
+  color: #007f5f;
+  font-family: Tahoma, Geneva, sans-serif
 }
-/*the button inside input search*/
-#butn {
-  position: absolute;
-  border-radius: 10px;
-  z-index: 4;
-  border: none;
-  height: 40px;
-  width: 100px;
+
+.btn-block {
+    background-color:#007f5f;
+    display: block;
+    width: 100%;
+    height: 38px;
+}
+ 
+/* .btn {
   cursor: pointer;
-  margin-top: 3px;
-  color: white;
-  background-color: #1e90ff;
-  transform: translateX(345px);
-  font-size: 19px;
-  padding: 2px;
-}
-
-#butn:hover {
-  background-color: rgb(58, 17, 207);
-}
-
-.sora {
-  width: 300px;
-  height: 300px;
-}
-#bigDiv {
-  display: inline-block;
-  vertical-align: top;
-  width: 56%;
-  height: 50%;
-}
-
-.txt {
-  font-size: 20px;
-  transform: translateX(0px);
+  background-color: #9c88ff;
+  box-shadow: var(--box-shadow);
   color: #fff;
-  /* margin-bottom: px; */
-}
-#zerinmidel {
-  text-align: center;
-  margin-top: 50px;
-}
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 30px;
+  padding: 10px;
+  width: 100%;
+} */
 
-.favpage {
-  background-color: #1e90ff; /* blue */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  border-radius: 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-left: 2px;
-  margin-right: 2px;
-}
-/* style about favaret page*/
-.favpage_ {
-  background-color: white; /* blue */
-  border: none;
-  color: #1e90ff;
-  padding: 15px 32px;
-  border-radius: 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-left: 2px;
-  margin-right: 2px;
-}
 
-/* style button in rede later and favouret page */
-.zer {
-  background-color: #1e90ff; /* blue */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  border-radius: 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: -17px;
-}
-/* hover*/
-.zer:hover {
-  background-color: rgb(44, 158, 179);
-}
-#wh {
-  color: #fff;
-}
-/* style about add to fav and read later button in show search book page*/
-.zeren {
-  background-color: #1e90ff; /* blue */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  border-radius: 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: -17px;
-}
-.zeren:hover {
-  background-color: rgb(44, 158, 179);
-}
+
