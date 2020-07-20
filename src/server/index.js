@@ -92,10 +92,18 @@ app.get('/expenses/:email', (req, res) => {
 /////////////////////////////////////////////////////////////////////////
 
 // post request for register
-app.post('/register', (req, res) => {
+
+/// it checks it the email is already registerred or not
+
+app.post('/register', async (req, res) => {
+  // take the info from the post request from the register component's post request
   var { first_name, last_name, email, password } = req.body;
-  // find user by email function
-  users.findOne({ email: email }).then((result) => {
+
+  // searach for the incoming email.
+  try {
+    var result = await users.findOne({ email: email });
+
+    /// if the email is not found it will do the registration process
     if (result === null) {
       bcrypt.hash(password, 10, (err, hash) => {
         if (err) {
@@ -117,39 +125,26 @@ app.post('/register', (req, res) => {
             });
         }
       });
+
+      // if the email is found it will send the message that the email.
     } else {
       res.send({ message: 'email already exsists' });
     }
-  });
+  } catch (err) {
+    console.log('=========> error in register', err);
+  }
 });
-
-// .then((user) => {
-//   if (!user) {
-//     bcrypt.hash(req.body.password, 10, (err, hash) => {
-//       userData.password = hash;
-//       User.create(userData)
-//         .then((user) => {
-//           res.json({ status: user.email + 'Registered!' });
-//         })
-//         .catch((err) => {
-//           res.send.status(400)('error: ' + err);
-//         });
-//     });
-//   } else {
-//     res.status(400).json({ error: 'User does not exist' });
-//   }
-// })
-// .catch((err) => {
-//   res.status(400).send('error: ' + err);
-// });
 
 //////////////////////////////////////////////////////////////
 // post request for login
 app.post('/login', (req, res) => {
-  User.findOne({
-    email: req.body.email,
-  })
+  var { email, password } = req.body;
+  users
+    .findOne({
+      email: email,
+    })
     .then((user) => {
+      console.log('helllo from signin server side');
       if (user) {
         if (bcrypt.compareSync(req.body.password, user.password)) {
           // Passwords match
