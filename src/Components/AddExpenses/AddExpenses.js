@@ -10,18 +10,18 @@ class Expenses extends React.Component {
     super(props);
     this.state = {
       expensesTypes: "",
-      amount: 1,
+      amount: "",
       createdAt: "",
       description: "",
       first_name: "",
       last_name: "",
-      email: "",
+      email: ""
     };
   }
-  // handlerChange function
-  handlerChange(event) {
+  // changeHandler function
+  changeHandler(event) {
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     });
     console.log(event.target.name);
   }
@@ -35,8 +35,8 @@ class Expenses extends React.Component {
       email: decoded.email,
     });
   }
-  //handlerSubmit function
-  handlerSubmit(event) {
+  //submitHandler function
+  submitHandler(event) {
     event.preventDefault();
     axios
       .post("http://localhost:4040/expenses", {
@@ -55,6 +55,15 @@ class Expenses extends React.Component {
         alert("Hello! fill the inputs above");
         console.log(err);
       });
+    this.setState({
+      expensesTypes: "",
+      amount: "",
+      createdAt: "",
+      description: "",
+      first_name: "",
+      last_name: "",
+      email: ""
+    })
   }
   // getAmountOfMoney
   getAmountOfMoney = (event) => {
@@ -65,7 +74,7 @@ class Expenses extends React.Component {
   render() {
     return (
       // general form for add expenses compo
-      <form onSubmit={this.handlerSubmit.bind(this)}>
+      <form onSubmit={this.submitHandler.bind(this)}>
         <div className="myDiv">
           <label> Types of Expenses: </label>
           <br />
@@ -74,10 +83,11 @@ class Expenses extends React.Component {
             type="text"
             name="expensesTypes"
             value={this.state.expensesTypes}
-            onChange={this.handlerChange.bind(this)}
+            onChange={this.changeHandler.bind(this)}
             placeholder="Enter text..."
           >
             {/* expenses options */}
+            <option value="none"> </option>
             <option value="Operating Expenses ">Operating Expenses </option>
             <option value="Financial Expenses">Financial Expenses</option>
             <option value="Extraordinary Expenses">
@@ -94,7 +104,7 @@ class Expenses extends React.Component {
             type="text"
             name="description"
             value={this.state.description}
-            onChange={this.handlerChange.bind(this)}
+            onChange={this.changeHandler.bind(this)}
             placeholder="Enter description ..."
           ></input>
           <br />
@@ -105,7 +115,7 @@ class Expenses extends React.Component {
             type="date"
             name="createdAt"
             value={this.state.createdAt}
-            onChange={this.handlerChange.bind(this)}
+            onChange={this.changeHandler.bind(this)}
             placeholder="Enter date..."
           ></input>
           <br /> <br />
@@ -116,7 +126,7 @@ class Expenses extends React.Component {
             type="number"
             name="amount"
             value={this.state.amount}
-            onChange={this.handlerChange.bind(this)}
+            onChange={this.changeHandler.bind(this)}
             placeholder="Enter amount..."
           ></input>
           <br /> <br />
