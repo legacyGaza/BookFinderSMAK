@@ -23,7 +23,7 @@
     "react-scripts": "^3.4.1"
   },
   "scripts": {
-    "start": "concurrently \"node src/server/index.js\" \"npm run s\"",
+    "start": "node src/server/index.js",
     "s": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
