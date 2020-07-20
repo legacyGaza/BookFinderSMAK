@@ -93,14 +93,13 @@ app.get('/expenses/:email', (req, res) => {
 
 // post request for register
 
-/// it checks it the email is already registerred or not 
+/// it checks it the email is already registerred or not
 
 app.post('/register', async (req, res) => {
-
   // take the info from the post request from the register component's post request
   var { first_name, last_name, email, password } = req.body;
 
-    // searach for the incoming email.
+  // searach for the incoming email.
   try {
     var result = await users.findOne({ email: email });
 
@@ -136,14 +135,16 @@ app.post('/register', async (req, res) => {
   }
 });
 
-
 //////////////////////////////////////////////////////////////
 // post request for login
 app.post('/login', (req, res) => {
-  User.findOne({
-    email: req.body.email,
-  })
+  var { email, password } = req.body;
+  users
+    .findOne({
+      email: email,
+    })
     .then((user) => {
+      console.log('helllo from signin server side');
       if (user) {
         if (bcrypt.compareSync(req.body.password, user.password)) {
           // Passwords match
