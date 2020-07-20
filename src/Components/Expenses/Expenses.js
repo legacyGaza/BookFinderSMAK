@@ -2,7 +2,6 @@
 // import modules
 import React from "react";
 import axios from "axios";
-// import { Button } from "react-bootstrap";
 import Trans from "../Trans/Trans";
 import jwt_decode from "jwt-decode";
 
@@ -15,15 +14,6 @@ class Expenses extends React.Component {
       email: "",
     };
   }
-  // handlerChange function
-  handlerChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-    console.log(event.target.name);
-  }
-
-  // componentDidMount function
   componentDidMount() {
     const token = localStorage.usertoken;
     const decoded = jwt_decode(token);
@@ -39,36 +29,19 @@ class Expenses extends React.Component {
       .then((res) => {
         const finalResult = res.data;
         this.setState({ Trans: finalResult });
-        console.log(finalResult);
       })
       .catch((err) => {
-        alert("Hello!! nothing to shown");
         console.log(err);
+        alert("Something went wrong");
       });
   }
-  // getAmountOfMoney
-  getAmountOfMoney = (event) => {
-    this.setState({
-      amout: event.target.value,
-    });
-  };
   render() {
     return (
       // general form for expenses compo
       <form onSubmit={this.handlerSubmit.bind(this)}>
         <div className="myDiv">
-          <label> Expenses List: </label>
-          <br />
-          <button variant="btn btn-success"> Show Expenses</button>
-          <Trans Trans={this.state.Trans} />
-          {/* <ul>
-            {this.state.Trans.map((element, index) => (
-              <li key={index}>
-                {element.expensesTypes}....{element.amount}...
-                {element.description}
-              </li>
-            ))}
-          </ul> */}
+          <Trans Trans={this.state.Trans} /><br /><br />
+          <button variant="btn btn-success"> Refresh </button>
         </div>
       </form>
     );
