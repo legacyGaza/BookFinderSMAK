@@ -2,8 +2,7 @@
 // import modules
 import React, { Component } from 'react';
 import { register } from '../UserFunctions/UserFunctions';
-import axios from "axios";
-
+import axios from 'axios';
 
 //Create Register Component
 class Register extends Component {
@@ -37,19 +36,21 @@ class Register extends Component {
     //   password: this.state.password,
     // };
     axios
-    .post("http://localhost:4040/users/register", {
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
-      email: this.state.email,
-      password: this.state.password,
-    })
-    .then((response) => {
-      console.log("Registered");
-    })
-    .catch((err) => {
-      alert(" Email already used");
-      console.log(err);
-    });
+      .post('http://localhost:4040/register', {
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        email: this.state.email,
+        password: this.state.password,
+      })
+      .then((response) => {
+        var {message} = response.data
+        console.log(response.data.message);
+        alert(message);
+      })
+      .catch((err) => {
+        // alert(" Email already used");
+        console.log(err);
+      });
   }
   //Rendering Register form
   render() {
