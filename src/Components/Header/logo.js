@@ -10,7 +10,7 @@ var Header = (props) => {
   return (
     <div>
       <img
-        class="center"
+        className="center"
         src="https://www.newtechq.com/static/img/cash-expenses-logo.png"
       ></img>
       <br />
