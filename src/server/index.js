@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 
 // calling Schema
 let expensesModel = database.expensesModel;
-let user = database.users;
+let users = database.users;
 
 // invoking express
 let app = express();
@@ -90,41 +90,58 @@ app.get('/expenses/:email', (req, res) => {
     });
 });
 /////////////////////////////////////////////////////////////////////////
+
 // post request for register
-app.post('users/register', (req, res) => {
-  const today = new Date();
+app.post('/register', (req, res) => {
   var { first_name, last_name, email, password } = req.body;
-  const userData = {
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    email: req.body.email,
-    password: req.body.password,
-    created: today,
-  };
   // find user by email function
-  User.findOne({
-    email: req.body.email,
-  })
-    .then((user) => {
-      if (!user) {
-        bcrypt.hash(req.body.password, 10, (err, hash) => {
-          userData.password = hash;
-          User.create(userData)
-            .then((user) => {
-              res.json({ status: user.email + 'Registered!' });
+  users.findOne({ email: email }).then((result) => {
+    if (result === null) {
+      bcrypt.hash(password, 10, (err, hash) => {
+        if (err) {
+          console.log('===> Failed to hash', err);
+        } else {
+          var user = new users({
+            first_name: first_name,
+            last_name: last_name,
+            email: email,
+            password: hash,
+          });
+          user
+            .save()
+            .then((result) => {
+              res.send({ message: 'registerred', user: result });
             })
             .catch((err) => {
-              res.send.status(400)('error: ' + err);
+              console.log('========> failed to save user', err);
             });
-        });
-      } else {
-        res.status(400).json({ error: 'User does not exist' });
-      }
-    })
-    .catch((err) => {
-      res.status(400).send('error: ' + err);
-    });
+        }
+      });
+    } else {
+      res.send({ message: 'email already exsists' });
+    }
+  });
 });
+
+// .then((user) => {
+//   if (!user) {
+//     bcrypt.hash(req.body.password, 10, (err, hash) => {
+//       userData.password = hash;
+//       User.create(userData)
+//         .then((user) => {
+//           res.json({ status: user.email + 'Registered!' });
+//         })
+//         .catch((err) => {
+//           res.send.status(400)('error: ' + err);
+//         });
+//     });
+//   } else {
+//     res.status(400).json({ error: 'User does not exist' });
+//   }
+// })
+// .catch((err) => {
+//   res.status(400).send('error: ' + err);
+// });
 
 //////////////////////////////////////////////////////////////
 // post request for login
@@ -185,7 +202,10 @@ app.get('/profile', (req, res) => {
 
 /////////////////////////////////////////////////////////
 //default port and lisetning
-var port = process.env.PORT || 4000;
-app.listen(port, () => {
-  console.log(`app listen to port ${port}`);
-});
+
+// var port = process.env.PORT || 4040;
+// app.listen(port, () => {
+//   console.log(`app listen to port ${port}`);
+// });
+// console.log('heeelllllllooooo kaaaarrrraaaaam')
+module.exports = app;
