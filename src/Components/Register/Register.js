@@ -28,13 +28,7 @@ class Register extends Component {
 
   // onSubmit function
   onSubmit(e) {
-    e.preventDefault();
-    // const newUser = {
-    //   first_name: this.state.first_name,
-    //   last_name: this.state.last_name,
-    //   email: this.state.email,
-    //   password: this.state.password,
-    // };
+    e.preventDefault() 
     axios
       .post('http://localhost:4040/register', {
         first_name: this.state.first_name,
@@ -44,11 +38,14 @@ class Register extends Component {
       })
       .then((response) => {
         var {message} = response.data
-        console.log(response.data.message);
+        console.log(message);
         alert(message);
+        
+        if (message === 'Registered') {
+          this.props.history.push('/expenses');
+        }
       })
       .catch((err) => {
-        // alert(" Email already used");
         console.log(err);
       });
   }

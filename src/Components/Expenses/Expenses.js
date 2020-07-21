@@ -11,7 +11,7 @@ class Expenses extends React.Component {
     super(props);
     this.state = {
       Trans: [],
-      email: "",
+      email: ""
     };
   }
   // componentDidMount() {
