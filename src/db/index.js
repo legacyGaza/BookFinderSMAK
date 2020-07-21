@@ -44,12 +44,15 @@ let UserSchema = mongoose.Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   date: { type: Date, default: Date.now },
-  expenses: {
-    date: { type: Date, default: Date.now },
-    item: String,
-    amount: Number,
-    description: String,
-  },
+  expenses: [
+    {
+      date: { type: Date, default: Date.now },
+      type: String,
+      item: String,
+      amount: Number,
+      description: String,
+    },
+  ],
 });
 
 let expensesModel = mongoose.model('expenses', expensesSchema);

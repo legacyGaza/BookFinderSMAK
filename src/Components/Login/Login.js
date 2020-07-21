@@ -7,8 +7,8 @@ import { Redirect } from 'react-router-dom';
 // import GooLogoin from "../gooLogin";
 // import GooLogout from "../gooLogout";
 // import GoLogin from "../GoLogin";
-
 //Create Login Component
+
 class Login extends Component {
   constructor() {
     super();
@@ -39,9 +39,12 @@ class Login extends Component {
         localStorage.setItem('useremail', response.data.email);
         // var email = localStorage.getItem('useremail');
         alert(response.data.message);
+        if (response.data.message === 'welcome to our website') {
+          this.props.history.push('/AddExpenses');
+        }
       })
       .catch((err) => {
-        alert('Wrong Email or Password');
+        // alert('Wrong Email or Password');
         console.log(err);
       });
   }

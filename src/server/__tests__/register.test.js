@@ -63,3 +63,13 @@ it('wrong email // login', async (done) => {
 }); 
 
 ////////////////////////
+// it('testing adding expenses', async (done) => {
+//   const response = await request.post('/addExpense').send({
+//     email: 'Ahmed123@gamil.com',
+//     password: '123',
+//   });
+  
+//   expect(response.body.message).toBe('User does not exist');
+   
+//   done();
+// }); 
