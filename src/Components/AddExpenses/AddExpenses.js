@@ -9,7 +9,7 @@ class Expenses extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: '',
+      expensetype: '',
       item: '',
       amount: '',
       date: '',
@@ -26,6 +26,7 @@ class Expenses extends React.Component {
 
   //submitHandler function
   submitHandler(event) {
+    var namount = Number(this.state.amount)
     event.preventDefault();
     var email = localStorage.getItem('useremail');
     axios
@@ -36,7 +37,7 @@ class Expenses extends React.Component {
           date: this.state.date,
           item: this.state.item,
           description: this.state.description,
-          type: this.state.type,
+          expensetype: this.state.expensetype,
         },
       })
       .then((res) => {
@@ -45,13 +46,13 @@ class Expenses extends React.Component {
       .catch((err) => {
         console.log('falure ====>', err);
       });
-    this.setState({
-      type: '',
-      amount: '',
-      date: '',
-      description: '',
-      item: '',
-    });
+    // this.setState({
+    //   expensetype: '',
+    //   amount: '',
+    //   date: '',
+    //   description: '',
+    //   item: '',
+    // });
   }
 
   render() {
@@ -63,8 +64,8 @@ class Expenses extends React.Component {
           <br />
           <select
             type='text'
-            name='type'
-            value={this.state.type}
+            name='expensetype'
+            value={this.state.expensetype}
             onChange={this.changeHandler.bind(this)}
           >
             <option value='none'> </option>

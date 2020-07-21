@@ -1,6 +1,7 @@
 // Require mongoose
 const mongoose = require('mongoose');
 // Connecting mongoose
+
 mongoose
   .connect(
     'mongodb+srv://MhmdHourani:0597552045@bookfinder.actzs.mongodb.net/Expenses?retryWrites=true&w=majority',
@@ -38,24 +39,23 @@ let expensesSchema = mongoose.Schema({
 
 ////////////////////////////////////////////////////////
 
-let UserSchema = mongoose.Schema(
-  {
-    first_name: { type: String },
-    last_name: { type: String },
-    email: { type: String },
-    password: { type: String },
-    expenses: [
-      {
-        date:  Date ,
-        type: String,
-        item: String,
-        amount: Number,
-        description: String,
-      },
-    ],
-  },
-  { typeKey: '$type' }
-);
+let UserSchema = mongoose.Schema({
+  first_name: { type: String },
+  last_name: { type: String },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  date: { type: Date, default: Date.now },
+  expenses: [
+    {
+      date: { type: Date, default: Date.now },
+      expensetype: String,
+      item: String,
+      amount: Number,
+      description: String,
+    },
+  ],
+});
+
 
 let expensesModel = mongoose.model('expenses', expensesSchema);
 let users = mongoose.model('users', UserSchema);
