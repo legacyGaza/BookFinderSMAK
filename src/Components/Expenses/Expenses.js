@@ -11,14 +11,14 @@ class Expenses extends React.Component {
     super(props);
     this.state = {
       Trans: [],
-      email: "",
+      email: ""
     };
   }
   componentDidMount() {
     const token = localStorage.usertoken;
     const decoded = jwt_decode(token);
     this.setState({
-      email: decoded.email,
+      email: decoded.email
     });
   }
   //handlerSubmit function

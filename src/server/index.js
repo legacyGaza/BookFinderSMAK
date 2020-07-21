@@ -121,7 +121,7 @@ app.post('/register', async (req, res) => {
           user
             .save()
             .then((result) => {
-              res.send({ message: 'registerred', user: result });
+              res.send({ message: 'Registered', user: result });
             })
             .catch((err) => {
               console.log('========> failed to save user', err);
