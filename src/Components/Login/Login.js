@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { login } from '../UserFunctions/UserFunctions';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 // import GooLogoin from "../gooLogin";
 // import GooLogout from "../gooLogout";
 // import GoLogin from "../GoLogin";
@@ -35,9 +36,9 @@ class Login extends Component {
         password: this.state.password,
       })
       .then((response) => {
-        localStorage.setItem('usertoken', response.data);
-        console.log(response.data);
-        return response.data;
+        localStorage.setItem('useremail', response.data.email);
+        // var email = localStorage.getItem('useremail');
+        alert(response.data.message);
       })
       .catch((err) => {
         alert('Wrong Email or Password');

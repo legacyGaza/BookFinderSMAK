@@ -6,6 +6,9 @@ var bodyParser = require('body-parser');
 // const users = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+var validator = require('validator');
+// require('dotenv').config();
+// SECRET_KEY = process.env.SECRET_KEY || secret
 
 // calling Schema
 let expensesModel = database.expensesModel;
@@ -137,38 +140,26 @@ app.post('/register', async (req, res) => {
 
 //////////////////////////////////////////////////////////////
 // post request for login
-app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
   var { email, password } = req.body;
-  users
-    .findOne({
-      email: email,
-    })
-    .then((user) => {
-      console.log('helllo from signin server side');
-      if (user) {
-        if (bcrypt.compareSync(req.body.password, user.password)) {
-          // Passwords match
-          const payload = {
-            _id: user._id,
-            first_name: user.first_name,
-            last_name: user.last_name,
-            email: user.email,
-          };
-          let token = jwt.sign(payload, process.env.SECRET_KEY, {
-            expiresIn: 1440,
-          });
-          res.send(token);
+
+  try {
+    var user = await users.findOne({ email: email })
+    if (user) {
+          if (bcrypt.compareSync(password, user.password)) {
+            res.send({ message: 'welcome to our website', email: user.email });
+          } else {
+            // Passwords don't match
+            res.send({ message: 'incorrect password' });
+          }
         } else {
-          // Passwords don't match
-          res.status(400).json({ error: 'User does not exist' });
+          res.send({ message: 'User does not exist' });
         }
-      } else {
-        res.json({ error: 'User does not exist' });
-      }
-    })
-    .catch((err) => {
-      res.send('error: ' + err);
-    });
+
+  } catch (error) {
+    console.log('error in login request' , error);
+  }
+  
 });
 
 //////////////////////////////////////////////////////////////////
@@ -180,9 +171,10 @@ app.get('/profile', (req, res) => {
   );
   // find user by id function
 
-  User.findOne({
-    _id: decoded._id,
-  })
+  users
+    .findOne({
+      _id: decoded._id,
+    })
     .then((user) => {
       if (user) {
         res.json(user);
