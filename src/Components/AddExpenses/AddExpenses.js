@@ -9,13 +9,12 @@ class Expenses extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      expensesTypes: '',
+      expensetype: '',
+      item: '',
       amount: '',
-      createdAt: '',
+      date: '',
       description: '',
-      first_name: '',
-      last_name: '',
-      email: '',
+     
     };
   }
   // changeHandler function
@@ -23,104 +22,82 @@ class Expenses extends React.Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
-    console.log(event.target.name);
   }
-  // //ComponentDidMount function
-  // componentDidMount() {
-  //   const token = localStorage.usertoken;
-  //   const decoded = jwt_decode(token);
-  //   this.setState({
-  //     first_name: decoded.first_name,
-  //     last_name: decoded.last_name,
-  //     email: decoded.email,
-  //   });
-  // }
+
   //submitHandler function
   submitHandler(event) {
+    var namount = Number(this.state.amount)
     event.preventDefault();
     var email = localStorage.getItem('useremail');
-    console.log(email);
     axios
-      .post('http://localhost:4040/addexpenses', {
-        expensesTypes: this.state.expensesTypes,
-        amount: this.state.amount,
-        createdAt: this.state.createdAt,
-        description: this.state.description,
-        first_name: this.state.first_name,
-        last_name: this.state.last_name,
-        email: this.state.email,
+      .put('http://localhost:4040/expenses', {
+        email: email,
+        expenses: {
+          amount: this.state.amount,
+          date: this.state.date,
+          item: this.state.item,
+          description: this.state.description,
+          expensetype: this.state.expensetype,
+        },
       })
       .then((res) => {
-        console.log(res.data);
+        alert(res.data);
       })
       .catch((err) => {
-        alert('Hello! fill the inputs above');
-        console.log(err);
+        console.log('falure ====>', err);
       });
-    this.setState({
-      expensesTypes: '',
-      amount: '',
-      createdAt: '',
-      description: '',
-      first_name: '',
-      last_name: '',
-      email: '',
-    });
+    // this.setState({
+    //   expensetype: '',
+    //   amount: '',
+    //   date: '',
+    //   description: '',
+    //   item: '',
+    // });
   }
-  // getAmountOfMoney
-  getAmountOfMoney = (event) => {
-    this.setState({
-      amout: event.target.value,
-    });
-  };
+
   render() {
     return (
       // general form for add expenses compo
       <form onSubmit={this.submitHandler.bind(this)}>
         <div className='myDiv'>
-          <label> Types of Expenses: </label>
+          <label> Types: </label>
           <br />
-          {/* select input for expenses*/}
           <select
             type='text'
-            name='expensesTypes'
-            value={this.state.expensesTypes}
+            name='expensetype'
+            value={this.state.expensetype}
             onChange={this.changeHandler.bind(this)}
-            placeholder='Enter text...'
           >
-            {/* expenses options */}
             <option value='none'> </option>
-            <option value='Operating Expenses '>Operating Expenses </option>
-            <option value='Financial Expenses'>Financial Expenses</option>
-            <option value='Extraordinary Expenses'>
-              Extraordinary Expenses
-            </option>
-            <option value='Non-Operating Expenses'>
-              Non-Operating Expenses
-            </option>
+            <option value='Food'>Food</option>
+            <option value='Clothes'>Clothes</option>
+            <option value='Transportation'>Transportation</option>
+            <option value='Technology'>Technology</option>
             <option value='Other'>Other</option>
           </select>
-          <br /> <br />
-          {/* description input for expenses*/}
-          <input
-            type='text'
-            name='description'
-            value={this.state.description}
-            onChange={this.changeHandler.bind(this)}
-            placeholder='Enter description ...'
-          ></input>
           <br />
           <label> Date : </label>
           <br />
-          {/* createdAt input for expenses*/}
+          {/* date input for expenses*/}
           <input
             type='date'
-            name='createdAt'
-            value={this.state.createdAt}
+            name='date'
+            value={this.state.date}
             onChange={this.changeHandler.bind(this)}
             placeholder='Enter date...'
           ></input>
-          <br /> <br />
+          <br />
+          <label> Item </label>
+          <br />
+          <input
+            type='text'
+            name='item'
+            value={this.state.item}
+            onChange={this.changeHandler.bind(this)}
+            placeholder='Enter item'
+          ></input>
+          <br />
+          {/* description input for expenses*/}
           <label> Amount : </label>
           <br />
           {/* amount input for expenses*/}
@@ -132,6 +109,17 @@ class Expenses extends React.Component {
             placeholder='Enter amount...'
           ></input>
           <br /> <br />
+          <label>Note</label>
+          <br />
+          <input
+            type='text'
+            name='description'
+            value={this.state.description}
+            onChange={this.changeHandler.bind(this)}
+            placeholder='add a note'
+          ></input>
+          <br />
+          <br />
           {/* Add transaction button send to db*/}
           <button variant='btn btn-success'> Add transaction</button>
         </div>

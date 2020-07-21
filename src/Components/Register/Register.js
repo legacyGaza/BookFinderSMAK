@@ -28,7 +28,7 @@ class Register extends Component {
 
   // onSubmit function
   onSubmit(e) {
-    e.preventDefault() 
+    e.preventDefault();
     axios
       .post('http://localhost:4040/register', {
         first_name: this.state.first_name,
@@ -37,10 +37,12 @@ class Register extends Component {
         password: this.state.password,
       })
       .then((response) => {
-        var {message} = response.data
+        var { message, user } = response.data;
+        console.log(response.data);
+        localStorage.setItem('useremail', user.email);
         console.log(message);
         alert(message);
-        
+
         if (message === 'Registered') {
           this.props.history.push('/expenses');
         }
