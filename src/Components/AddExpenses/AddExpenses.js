@@ -45,13 +45,13 @@ class Expenses extends React.Component {
       .catch((err) => {
         console.log('falure ====>', err);
       });
-    // this.setState({
-    //   type: '',
-    //   amount: '',
-    //   date: '',
-    //   description: '',
-    //   item: '',
-    // });
+    this.setState({
+      type: '',
+      amount: '',
+      date: '',
+      description: '',
+      item: '',
+    });
   }
 
   render() {
