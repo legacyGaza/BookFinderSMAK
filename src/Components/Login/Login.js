@@ -85,9 +85,6 @@ class Login extends Component {
               >
                 Sign in
               </button>
-              {/*<GoLogin />
-              <GooLogoin />
-              <GooLogout /> */}
             </form>
           </div>
         </div>

@@ -158,15 +158,16 @@ app.post('/login', async (req, res) => {
 
 //////////////////////////////////////////////////////////////////
 
-app.post('/addexpenses', async (req, res) => {
+app.put('/expenses', async (req, res) => {
   const { email, expenses } = req.body;
+
   try {
     var user = await users.findOne({ email: email });
-    console.log(user)
     if (user) {
-      user.expenses.push(expenses)
-      var newUser = await user.save()
-      res.send(newUser)
+      user.expenses.push(expenses);
+      var newUser = await user.save();
+
+      res.send('espensses added');
     }
   } catch (error) {
     console.log('failed to add expenses', error);

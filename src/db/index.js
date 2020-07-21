@@ -38,22 +38,24 @@ let expensesSchema = mongoose.Schema({
 
 ////////////////////////////////////////////////////////
 
-let UserSchema = mongoose.Schema({
-  first_name: { type: String },
-  last_name: { type: String },
-  email: { type: String, required: true },
-  password: { type: String, required: true },
-  date: { type: Date, default: Date.now },
-  expenses: [
-    {
-      date: { type: Date, default: Date.now },
-      type: String,
-      item: String,
-      amount: Number,
-      description: String,
-    },
-  ],
-});
+let UserSchema = mongoose.Schema(
+  {
+    first_name: { type: String },
+    last_name: { type: String },
+    email: { type: String },
+    password: { type: String },
+    expenses: [
+      {
+        date:  Date ,
+        type: String,
+        item: String,
+        amount: Number,
+        description: String,
+      },
+    ],
+  },
+  { typeKey: '$type' }
+);
 
 let expensesModel = mongoose.model('expenses', expensesSchema);
 let users = mongoose.model('users', UserSchema);
