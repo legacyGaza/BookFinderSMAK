@@ -14,13 +14,13 @@ class Expenses extends React.Component {
       email: "",
     };
   }
-  componentDidMount() {
-    const token = localStorage.usertoken;
-    const decoded = jwt_decode(token);
-    this.setState({
-      email: decoded.email,
-    });
-  }
+  // componentDidMount() {
+  //   const token = localStorage.usertoken;
+  //   const decoded = jwt_decode(token);
+  //   this.setState({
+  //     email: decoded.email,
+  //   });
+  // }
   //handlerSubmit function
   handlerSubmit(event) {
     event.preventDefault();

@@ -26,47 +26,43 @@ app.use(
     extended: false,
   })
 );
-//app.use(express.static(__dirname + '/../front-end/dist'));
+
 app.use(express.static('build'));
 
-// Routes for using users db
-// var Users = require('./routes/Users');
-// app.use('/users', Users);
-
 //Post request
-app.post('/expenses', (req, res) => {
-  console.log(req.body);
-  const {
-    expensesTypes,
-    amount,
-    createdAt,
-    description,
-    first_name,
-    last_name,
-    email,
-  } = req.body;
+// app.post('/expenses', (req, res) => {
+//   console.log(req.body);
+//   const {
+//     expensesTypes,
+//     amount,
+//     createdAt,
+//     description,
+//     first_name,
+//     last_name,
+//     email,
+//   } = req.body;
 
-  //Create document for saving expenses
-  let expensesDocument = new expensesModel({
-    expensesTypes: expensesTypes,
-    amount: amount,
-    createdAt: createdAt,
-    description: description,
-    first_name: first_name,
-    last_name: last_name,
-    email: email,
-  });
+//   //Create document for saving expenses
+//   let expensesDocument = new expensesModel({
+//     expensesTypes: expensesTypes,
+//     amount: amount,
+//     createdAt: createdAt,
+//     description: description,
+//     first_name: first_name,
+//     last_name: last_name,
+//     email: email,
+//   });
 
-  //save function for expenses
-  expensesDocument.save((err) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send(err);
-    } else {
-      res.status(201).send('Saved expenses !');
-    }
-  });
-});
+//   //save function for expenses
+//   expensesDocument.save((err) => {
+//     if (err) {
+//       console.log(err);
+//       res.status(500).send(err);
+//     } else {
+//       res.status(201).send('Saved expenses !');
+//     }
+//   });
+// });
 
 //Post request
 app.get('/expenses', (req, res) => {
@@ -144,25 +140,40 @@ app.post('/login', async (req, res) => {
   var { email, password } = req.body;
 
   try {
-    var user = await users.findOne({ email: email })
+    var user = await users.findOne({ email: email });
     if (user) {
-          if (bcrypt.compareSync(password, user.password)) {
-            res.send({ message: 'welcome to our website', email: user.email });
-          } else {
-            // Passwords don't match
-            res.send({ message: 'incorrect password' });
-          }
-        } else {
-          res.send({ message: 'User does not exist' });
-        }
-
+      if (bcrypt.compareSync(password, user.password)) {
+        res.send({ message: 'welcome to our website', email: user.email });
+      } else {
+        // Passwords don't match
+        res.send({ message: 'incorrect password' });
+      }
+    } else {
+      res.send({ message: 'User does not exist' });
+    }
   } catch (error) {
-    console.log('error in login request' , error);
+    console.log('error in login request', error);
   }
-  
 });
 
 //////////////////////////////////////////////////////////////////
+
+app.post('/addexpenses', async (req, res) => {
+  const { email, expenses } = req.body;
+  try {
+    var user = await users.findOne({ email: email });
+    console.log(user)
+    if (user) {
+      user.expenses.push(expenses)
+      var newUser = await user.save()
+      res.send(newUser)
+    }
+  } catch (error) {
+    console.log('failed to add expenses', error);
+  }
+});
+
+///////////////////////////////////////////////////////////////////
 // get request for profile
 app.get('/profile', (req, res) => {
   var decoded = jwt.verify(
