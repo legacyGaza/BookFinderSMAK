@@ -26,40 +26,30 @@ let expensesSchema = mongoose.Schema({
     type: Number,
     required: [true, 'Please add a positive or negative number'],
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  createdAt: { type: Date, default: Date.now },
   description: {
     type: String,
     required: [true, 'Please add some description'],
   },
-  first_name: {
-    type: String,
-  },
-  last_name: {
-    type: String,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-});
-//////////////////////////////////////////////////////
-
-var newExpensesSchema = mongoose.Schema({
-  amount: {},
-  id: {},
-  array: [{}], /// datails about the expenses.
+  first_name: { type: String },
+  last_name: { type: String },
+  email: { type: String, required: true },
 });
 
 ////////////////////////////////////////////////////////
+
 let UserSchema = mongoose.Schema({
   first_name: { type: String },
   last_name: { type: String },
   email: { type: String, required: true },
   password: { type: String, required: true },
   date: { type: Date, default: Date.now },
+  expenses: {
+    date: { type: Date, default: Date.now },
+    item: String,
+    amount: Number,
+    description: String,
+  },
 });
 
 let expensesModel = mongoose.model('expenses', expensesSchema);
