@@ -3,12 +3,9 @@ const express = require('express');
 const database = require('../db/index');
 const cors = require('cors');
 var bodyParser = require('body-parser');
-// const users = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 var validator = require('validator');
-// require('dotenv').config();
-// SECRET_KEY = process.env.SECRET_KEY || secret
 
 // calling Schema
 let expensesModel = database.expensesModel;
@@ -76,18 +73,6 @@ app.get('/expenses', (req, res) => {
     });
 });
 
-//search request by email
-app.get('/expenses/:email', (req, res) => {
-  const emailVal = req.params.email;
-  expensesModel
-    .find({ email: emailVal })
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      res.send(err);
-    });
-});
 /////////////////////////////////////////////////////////////////////////
 
 // post request for register
@@ -175,66 +160,60 @@ app.put('/expenses', async (req, res) => {
 });
 
 ///////////////////////////////////////////////////////////////////
-// get request for profile
-app.get('/profile', (req, res) => {
-  var decoded = jwt.verify(
-    req.headers['authorization'],
-    process.env.SECRET_KEY
-  );
-  // find user by id function
 
-  users
-    .findOne({
-      _id: decoded._id,
-    })
-    .then((user) => {
-      if (user) {
-        console.log(user)
-        res.send(user);
-      } else {
-        res.send('User does not exist');
-      }
-    })
-    .catch((err) => {
-      console.log("errrrrrrrrrrrrrrrrrrrrr")
-      res.send('error: ' + err);
-    });
+app.get('/expenses/:email', async (req, res) => {
+  const { email } = req.params;
+  try {
+    var user = await users.findOne({ email: email });
+    if (user) {
+      res.send(user.expenses);
+    } else {
+      res.send('could not find data');
+    }
+  } catch (error) {
+    console.log('error in get all function ===>', error);
+  }
 });
+
+//////////////////////////////////////////////////////////////////
+
+app.get('/search/:email', async (req, res) => {
+  const { email } = req.params;
+  try {
+    var user = await users.findOne({ email: email });
+    if (user) {
+      res.send(user.expenses);
+    } else {
+      res.send('could not find data');
+    }
+  } catch (error) {
+    console.log('error in get all function ===>', error);
+  }
+});
+// get request for profile
+// app.get('/profile', (req, res) => {
+//   var decoded = jwt.verify(
+//     req.headers['authorization'],
+//     process.env.SECRET_KEY
+//   );
+//   // find user by id function
+
+//   users
+//     .findOne({
+//       _id: decoded._id,
+//     })
+//     .then((user) => {
+//       if (user) {
+//         res.json(user);
+//       } else {
+//         res.send('User does not exist');
+//       }
+//     })
+//     .catch((err) => {
+//       res.send('error: ' + err);
+//     });
+// });
 
 /////////////////////////////////////////////////////////
 
-
-app.get('/user', (req, res) => {
-  let { email } = req.query
-  // find user by id function
-
-  users
-    .findOne({
-      email: email,
-    })
-    .then((user) => {
-      if (user) {
-        res.send(user);
-      } else {
-        res.send('User does not exist');
-      }
-    })
-    .catch((err) => {
-      res.send('error: ' + err);
-    });
-});
-
-
-
-
-
-
-
-//default port and lisetning
-
-// var port = process.env.PORT || 4040;
-// app.listen(port, () => {
-//   console.log(`app listen to port ${port}`);
-// });
-// console.log('heeelllllllooooo kaaaarrrraaaaam')
 module.exports = app;

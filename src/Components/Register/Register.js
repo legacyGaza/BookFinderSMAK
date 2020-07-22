@@ -1,7 +1,6 @@
 // register Component
 // import modules
 import React, { Component } from "react";
-import { register } from "../UserFunctions/UserFunctions";
 import axios from "axios";
 
 //Create Register Component
@@ -13,7 +12,6 @@ class Register extends Component {
       last_name: "",
       email: "",
       password: "",
-      errors: {},
     };
 
     this.onChange = this.onChange.bind(this);
@@ -44,7 +42,7 @@ class Register extends Component {
         alert(message);
 
         if (message === "Registered") {
-          this.props.history.push("/expenses");
+          this.props.history.push("/AddExpenses");
         }
       })
       .catch((err) => {
@@ -58,9 +56,9 @@ class Register extends Component {
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
-              <h1 className="h3 mb-3 font-weight-normal">Register</h1>
               <div className="form-group">
                 <label htmlFor="name">First name</label>
+                <br />
                 <input
                   type="text"
                   className="form-control"
@@ -72,6 +70,7 @@ class Register extends Component {
               </div>
               <div className="form-group">
                 <label htmlFor="name">Last name</label>
+                <br />
                 <input
                   type="text"
                   className="form-control"
@@ -83,6 +82,7 @@ class Register extends Component {
               </div>
               <div className="form-group">
                 <label htmlFor="email">Email address</label>
+                <br />
                 <input
                   type="email"
                   className="form-control"
@@ -94,6 +94,7 @@ class Register extends Component {
               </div>
               <div className="form-group">
                 <label htmlFor="password">Password</label>
+                <br />
                 <input
                   type="password"
                   className="form-control"
@@ -103,12 +104,7 @@ class Register extends Component {
                   onChange={this.onChange}
                 />
               </div>
-              <button
-                type="submit"
-                className="btn btn-lg btn-primary btn-block"
-              >
-                Register!
-              </button>
+              <button type="submit">Register!</button>
             </form>
           </div>
         </div>
