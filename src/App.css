@@ -1,5 +1,5 @@
 html {
-  background: url('./dark.jpg') no-repeat center center fixed;
+  background: url("./dark.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -34,6 +34,8 @@ textarea {
 }
 label {
   color: rgb(240, 233, 233);
+  color: rgb(255, 255, 255);
+  text-align: left;
   font-size: 25px;
   text-align: right;
 }
@@ -45,12 +47,12 @@ input:focus {
 button {
   background-color: #d2db53;
   border: none;
-  color: rgb(34, 31, 31);
+  color: rgb(0, 0, 0);
   padding: 14px 32px;
   text-align: center;
   font-size: 16px;
   margin: 4px 2px;
-  opacity: 0.6;
+  opacity: 0.8;
   transition: 0.3s;
   display: inline-block;
   text-decoration: none;
@@ -114,3 +116,55 @@ span {
   font-weight: bold;
   border-radius: 5px;
 }
+header {
+  background-color: rgb(248, 248, 248, 0.3);
+  position: sticky;
+  top: 0px;
+  padding: 8px;
+}
+.navbar {
+  min-height: 6vh;
+  margin: auto;
+  width: 90%;
+  align-items: left;
+}
+
+.navbar a {
+  color: rgb(0, 0, 0);
+  background-color: #d2db53;
+}
+
+a {
+  color: black;
+}
+
+
+/* #tbl, #tbl2{
+  font-size: 16px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+
+#tbl,#tbl2, td, th{
+  border: 1px solid #ddd;
+   padding: 8px;
+   margin-top: 70px;
+}
+
+tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+tr:hover {
+  background-color: #ddd;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align:  center;
+  background-color: darkcyan;
+  color: white;
+} */

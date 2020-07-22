@@ -42,7 +42,7 @@ class Register extends Component {
         alert(message);
 
         if (message === 'Registered') {
-          this.props.history.push('/AddExpenses');
+          this.props.history.push('/homeLand');
         }
       })
       .catch((err) => {
@@ -62,7 +62,7 @@ class Register extends Component {
                   type='text'
                   className='form-control'
                   name='first_name'
-                  placeholder='Enter your first name'
+                  placeholder='First name'
                   value={this.state.first_name}
                   onChange={this.onChange}
                 />
@@ -73,7 +73,7 @@ class Register extends Component {
                   type='text'
                   className='form-control'
                   name='last_name'
-                  placeholder='Enter your lastname name'
+                  placeholder='Last name'
                   value={this.state.last_name}
                   onChange={this.onChange}
                 />
@@ -84,7 +84,7 @@ class Register extends Component {
                   type='email'
                   className='form-control'
                   name='email'
-                  placeholder='Enter email'
+                  placeholder='Email'
                   value={this.state.email}
                   onChange={this.onChange}
                 />

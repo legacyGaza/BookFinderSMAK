@@ -3,10 +3,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-// import GooLogoin from "../gooLogin";
-// import GooLogout from "../gooLogout";
-// import GoLogin from "../GoLogin";
-//Create Login Component
 
 class Login extends Component {
   constructor() {
@@ -39,7 +35,7 @@ class Login extends Component {
         // var email = localStorage.getItem('useremail');
         alert(response.data.message);
         if (response.data.message === 'welcome to our website') {
-          this.props.history.push('/AddExpenses');
+          this.props.history.push('/homeLand');
         }
       })
       .catch((err) => {

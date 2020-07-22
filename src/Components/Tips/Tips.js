@@ -7,7 +7,7 @@ class Tips extends Component {
 
   //Rendering User info form
   render() {
-    return <div className="container">
+    return <div className="container" style={{ color: "white", fontSize: "18px", textAlign: "left", marginLeft: "10px" }}>
       <p>
         If you’re making a budget, congrats!
         For many people, having more money seriously adds to their freedom
