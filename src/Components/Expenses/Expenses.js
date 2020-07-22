@@ -11,17 +11,10 @@ class Expenses extends React.Component {
     super(props);
     this.state = {
       Trans: [],
-      email: ""
+      email: "",
     };
   }
-  // componentDidMount() {
-  //   const token = localStorage.usertoken;
-  //   const decoded = jwt_decode(token);
-  //   this.setState({
-  //     email: decoded.email,
-  //   });
-  // }
-  //handlerSubmit function
+
   handlerSubmit(event) {
     event.preventDefault();
     axios
@@ -40,7 +33,9 @@ class Expenses extends React.Component {
       // general form for expenses compo
       <form onSubmit={this.handlerSubmit.bind(this)}>
         <div className="myDiv">
-          <Trans Trans={this.state.Trans} /><br /><br />
+          <Trans Trans={this.state.Trans} />
+          <br />
+          <br />
           <button variant="btn btn-success"> Refresh </button>
         </div>
       </form>
