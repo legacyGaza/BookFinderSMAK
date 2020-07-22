@@ -160,6 +160,7 @@ app.put('/expenses', async (req, res) => {
 });
 
 ///////////////////////////////////////////////////////////////////
+<<<<<<< HEAD
 
 app.get('/expenses/:email', async (req, res) => {
   const { email } = req.params;
@@ -173,6 +174,32 @@ app.get('/expenses/:email', async (req, res) => {
   } catch (error) {
     console.log('error in get all function ===>', error);
   }
+=======
+// get request for profile
+app.get('/profile', (req, res) => {
+  var decoded = jwt.verify(
+    req.headers['authorization'],
+    process.env.SECRET_KEY
+  );
+  // find user by id function
+
+  users
+    .findOne({
+      _id: decoded._id,
+    })
+    .then((user) => {
+      if (user) {
+        console.log(user)
+        res.send(user);
+      } else {
+        res.send('User does not exist');
+      }
+    })
+    .catch((err) => {
+      console.log("errrrrrrrrrrrrrrrrrrrrr")
+      res.send('error: ' + err);
+    });
+>>>>>>> 3ea589032e432c007d7d066def1a1e4ce460632b
 });
 
 //////////////////////////////////////////////////////////////////
@@ -201,5 +228,37 @@ app.get('/expenses/:email', async (req, res) => {
 // });
 
 /////////////////////////////////////////////////////////
+<<<<<<< HEAD
+=======
+
+
+app.get('/user', (req, res) => {
+  let { email } = req.query
+  // find user by id function
+
+  users
+    .findOne({
+      email: email,
+    })
+    .then((user) => {
+      if (user) {
+        res.send(user);
+      } else {
+        res.send('User does not exist');
+      }
+    })
+    .catch((err) => {
+      res.send('error: ' + err);
+    });
+});
+
+
+
+
+
+
+
+//default port and lisetning
+>>>>>>> 3ea589032e432c007d7d066def1a1e4ce460632b
 
 module.exports = app;
