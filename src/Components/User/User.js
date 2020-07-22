@@ -1,33 +1,37 @@
 // Profile Component
 // import modules
 import React, { Component } from "react";
-import jwt_decode from "jwt-decode";
+import axios from 'axios';
+
+
 
 //Create User Component
+let first_name;
+let last_name;
 class User extends Component {
   constructor() {
     super();
-    this.state = {
-      first_name: "",
-      last_name: "",
-      email: "",
-      errors: {},
-    };
+  }
+  componentDidMount() {
+    axios.get('http://localhost:4040/user', {
+      params: {
+        email: localStorage.useremail
+      }
+    })
+      .then((res) => {
+        first_name = res.data.first_name;
+        last_name = res.data.last_name;
+      }).catch((error) => {
+        console.log(error)
+      });
   }
 
-  //componentDidMount function
-  componentDidMount() {
-    const token = localStorage.usertoken;
-    const decoded = jwt_decode(token);
-    this.setState({
-      first_name: decoded.first_name,
-      last_name: decoded.last_name,
-      email: decoded.email,
-    });
-  }
 
   //Rendering User info form
   render() {
+    if (first_name === undefined || last_name === undefined) {
+      return <div />
+    }
     return (
       <div className="container">
         <div className="jumbotron mt-5">
@@ -38,15 +42,15 @@ class User extends Component {
             <tbody>
               <tr>
                 <td>Fist Name</td>
-                <td>{this.state.first_name}</td>
+                <td>{first_name}</td>
               </tr>
               <tr>
                 <td>Last Name</td>
-                <td>{this.state.last_name}</td>
+                <td>{last_name}</td>
               </tr>
               <tr>
                 <td>Email</td>
-                <td>{this.state.email}</td>
+                <td>{localStorage.useremail}</td>
               </tr>
             </tbody>
           </table>
