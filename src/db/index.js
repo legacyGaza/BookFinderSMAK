@@ -17,26 +17,6 @@ mongoose
     console.log('Error while connecting to DB', err);
   });
 
-// Create expensesSchema
-let expensesSchema = mongoose.Schema({
-  expensesTypes: {
-    type: String,
-    required: [true, 'Please add some expensesTypes'],
-  },
-  amount: {
-    type: Number,
-    required: [true, 'Please add a positive or negative number'],
-  },
-  createdAt: { type: Date, default: Date.now },
-  description: {
-    type: String,
-    required: [true, 'Please add some description'],
-  },
-  first_name: { type: String },
-  last_name: { type: String },
-  email: { type: String, required: true },
-});
-
 ////////////////////////////////////////////////////////
 
 let UserSchema = mongoose.Schema({
@@ -57,9 +37,6 @@ let UserSchema = mongoose.Schema({
 });
 
 
-let expensesModel = mongoose.model('expenses', expensesSchema);
-let users = mongoose.model('users', UserSchema);
 
-// Export expensesModel
-module.exports.expensesModel = expensesModel;
+let users = mongoose.model('users', UserSchema);
 module.exports.users = users;

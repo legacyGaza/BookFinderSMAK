@@ -1,104 +1,62 @@
-.myDiv {
+html {
+  background: url('./dark.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.container {
   text-align: center;
+  margin-top: 100px;
+}
+.land-title {
+  color: white;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
-
-:root {
-  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-* {
+input {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
   box-sizing: border-box;
 }
 
-.form-control {
-    display: block;
-    width: 100%;
-    padding: .375rem .75rem;
-    font-size: 10px;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #e3e3e3;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-h5{
-    font-family: "Comic Sans MS", cursive, sans-serif; 
-  position: center;
-  font-size: 10px;
-}
-body {
-  background-image: url(Untitled-1.jpg);
- 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin: 0;
-  font-family: "Lato", sans-serif;
-}
-
- 
-
-h1 {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-
-  letter-spacing: 1px;
-  margin: 0;
-}
-h2 {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-
-  letter-spacing: 1px;
-  margin: 0;
-}
-
-h3 {
-  border-bottom: 4px solid #bbb;
-  padding-bottom: 10px;
-  margin: 40px 0 10px;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-
-}
-
-h4 {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  margin: 0;
-  text-transform: uppercase;
-}
-
 label {
-  font-size: 12px;
-  display: inline-block;
-  margin: 10px 0;
-  color: #007f5f;
-  font-family: Tahoma, Geneva, sans-serif
+  color: aliceblue;
+  text-align: left;
+  font-size: 25px;
 }
 
-.btn-block {
-    background-color:#007f5f;
-    display: block;
-    width: 100%;
-    height: 38px;
+input:focus {
+  background-color: lightblue;
 }
- 
-/* .btn {
-  cursor: pointer;
-  background-color: #9c88ff;
-  box-shadow: var(--box-shadow);
-  color: #fff;
-  border: 0;
-  display: block;
+
+button {
+  background-color: #d2db53;
+  border: none;
+  color: rgb(34, 31, 31);
+  padding: 14px 32px;
+  text-align: center;
   font-size: 16px;
-  margin: 10px 0 30px;
-  padding: 10px;
-  width: 100%;
-} */
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
 
+button:hover {
+  opacity: 1;
+}
 
+table {
+  color: aliceblue;
+}
 
+select {
+  width: 10%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
