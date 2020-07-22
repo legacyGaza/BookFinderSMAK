@@ -189,7 +189,32 @@ app.get('/profile', (req, res) => {
     })
     .then((user) => {
       if (user) {
-        res.json(user);
+        console.log(user)
+        res.send(user);
+      } else {
+        res.send('User does not exist');
+      }
+    })
+    .catch((err) => {
+      console.log("errrrrrrrrrrrrrrrrrrrrr")
+      res.send('error: ' + err);
+    });
+});
+
+/////////////////////////////////////////////////////////
+
+
+app.get('/user', (req, res) => {
+  let { email } = req.query
+  // find user by id function
+
+  users
+    .findOne({
+      email: email,
+    })
+    .then((user) => {
+      if (user) {
+        res.send(user);
       } else {
         res.send('User does not exist');
       }
@@ -199,7 +224,12 @@ app.get('/profile', (req, res) => {
     });
 });
 
-/////////////////////////////////////////////////////////
+
+
+
+
+
+
 //default port and lisetning
 
 // var port = process.env.PORT || 4040;

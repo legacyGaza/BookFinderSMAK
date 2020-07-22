@@ -9,7 +9,7 @@ class Landing extends Component {
   //logOut func
   logOut(e) {
     e.preventDefault();
-    localStorage.removeItem("usertoken");
+    localStorage.removeItem("useremail");
     this.props.history.push(`/`);
   }
 
@@ -85,7 +85,7 @@ class Landing extends Component {
               </Link>
             </li>
           </ul>
-          {localStorage.usertoken ? userLink : loginRegLink}
+          {localStorage.useremail ? userLink : loginRegLink}
         </div>
       </nav>
     );

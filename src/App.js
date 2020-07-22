@@ -34,8 +34,6 @@ class App extends Component {
         return (
           // App div
           <div className="App">
-            {/* Router and Routes for
-            register,login,AddExpenses,Expenses,user,Home */}
             <Router>
               <Header /> <br />
               <div className="App">
