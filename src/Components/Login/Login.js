@@ -3,10 +3,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-// import GooLogoin from "../gooLogin";
-// import GooLogout from "../gooLogout";
-// import GoLogin from "../GoLogin";
-//Create Login Component
 
 class Login extends Component {
   constructor() {
@@ -39,7 +35,7 @@ class Login extends Component {
         // var email = localStorage.getItem('useremail');
         alert(response.data.message);
         if (response.data.message === 'welcome to our website') {
-          this.props.history.push('/AddExpenses');
+          this.props.history.push('/homeLand');
         }
       })
       .catch((err) => {
@@ -56,19 +52,17 @@ class Login extends Component {
           <div className='col-md-6 mt-5 mx-auto'>
             <form noValidate onSubmit={this.onSubmit}>
               <div className='form-group'>
-                <label htmlFor='email'>Email address</label>
                 <br />
                 <input
                   type='email'
                   className='form-control'
                   name='email'
-                  placeholder='Enter email'
+                  placeholder='Email'
                   value={this.state.email}
                   onChange={this.onChange}
                 />
               </div>
               <div className='form-group'>
-                <label htmlFor='password'>Password</label>
                 <br />
                 <input
                   type='password'

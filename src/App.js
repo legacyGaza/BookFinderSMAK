@@ -14,7 +14,10 @@ import AddExpenses from "./Components/AddExpenses/AddExpenses";
 import Expenses from "./Components/Expenses/Expenses";
 import User from "./Components/User/User";
 import Tips from "./Components/Tips/Tips";
-import Navbar from './Components/nav'
+import Navbar from './Components/nav';
+import HomeLand from './Components/HomeLand/homeLand';
+import About from './Components/AboutContact/About';
+import Contact from './Components/AboutContact/Contact';
 
 // creat App Component
 class App extends Component {
@@ -45,6 +48,9 @@ class App extends Component {
                   <Route exact path="/Expenses" component={Expenses} />
                   <Route exact path="/user" component={User} />
                   <Route exact path="/Tips" component={Tips} />
+                  <Route exact path="/homeLand" component={HomeLand} />
+                  <Route exact path="/about" component={About} />
+                  <Route exact path="/contact" component={Contact} />
                 </div>
               </div>
             </Router>

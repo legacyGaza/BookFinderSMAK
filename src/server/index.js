@@ -61,7 +61,6 @@ app.use(express.static('build'));
 //   });
 // });
 
-//Post request
 app.get('/expenses', (req, res) => {
   expensesModel
     .find({})
@@ -190,30 +189,27 @@ app.get('/search/:email', async (req, res) => {
     console.log('error in get all function ===>', error);
   }
 });
-// get request for profile
-// app.get('/profile', (req, res) => {
-//   var decoded = jwt.verify(
-//     req.headers['authorization'],
-//     process.env.SECRET_KEY
-//   );
-//   // find user by id function
-
-//   users
-//     .findOne({
-//       _id: decoded._id,
-//     })
-//     .then((user) => {
-//       if (user) {
-//         res.json(user);
-//       } else {
-//         res.send('User does not exist');
-//       }
-//     })
-//     .catch((err) => {
-//       res.send('error: ' + err);
-//     });
-// });
 
 /////////////////////////////////////////////////////////
+app.get('/user', (req, res) => {
+  let { email } = req.query
+  // find user by id function
+
+  users
+    .findOne({
+      email: email
+    })
+    .then((user) => {
+      if (user) {
+        res.send(user);
+      } else {
+        res.send('User does not exist');
+      }
+    })
+    .catch((err) => {
+      res.send('error: ' + err);
+    });
+});
+
 
 module.exports = app;
