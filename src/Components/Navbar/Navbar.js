@@ -2,7 +2,6 @@
 // import modules
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import {Fragment} from 'react';
 import "./Navbar.css";
 
 //Create Landing Component
@@ -90,8 +89,8 @@ class Landing extends Component {
         </div>
       </nav>
     );
-  
+  }
 }
-}
+
 // Exporting logout Component
 export default withRouter(Landing);

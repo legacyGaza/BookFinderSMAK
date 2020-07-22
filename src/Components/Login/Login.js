@@ -1,7 +1,6 @@
 // login Component
 // import modules
 import React, { Component } from 'react';
-import { login } from '../UserFunctions/UserFunctions';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 // import GooLogoin from "../gooLogin";
@@ -56,9 +55,9 @@ class Login extends Component {
         <div className='row'>
           <div className='col-md-6 mt-5 mx-auto'>
             <form noValidate onSubmit={this.onSubmit}>
-              <h1 className='h3 mb-3 font-weight-normal'>Please sign in</h1>
               <div className='form-group'>
                 <label htmlFor='email'>Email address</label>
+                <br />
                 <input
                   type='email'
                   className='form-control'
@@ -70,6 +69,7 @@ class Login extends Component {
               </div>
               <div className='form-group'>
                 <label htmlFor='password'>Password</label>
+                <br />
                 <input
                   type='password'
                   className='form-control'

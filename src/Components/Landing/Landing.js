@@ -7,16 +7,16 @@ class Landing extends Component {
   render() {
     return (
       <div className='container'>
-        <div className='jumbotron mt-5'>
-          <div className='col-sm-8 mx-auto'>
-            <h1 className='text-center'>WELCOME</h1>
-            <a href='/login'>
-              <button>LOG IN</button>
-            </a>
-            <a href='/register'>
-              <button>Register</button>
-            </a>
-          </div>
+        <div>
+          <h1 className='land-title'>WELCOME</h1>
+
+          <button>
+            <a href='/login'>LOG IN</a>
+          </button>
+
+          <button>
+            <a href='/register'>Register</a>
+          </button>
         </div>
       </div>
     );
