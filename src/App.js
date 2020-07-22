@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import "./App.css";
 import Home from "./Home";
-import Header from "./Components/Header/logo";
 import Navbar from "./Components/Navbar/Navbar";
 import Landing from "./Components/Landing/Landing";
 import Login from "./Components/Login/Login";
@@ -37,7 +36,6 @@ class App extends Component {
             {/* Router and Routes for
             register,login,AddExpenses,Expenses,user,Home */}
             <Router>
-              <Header /> <br />
               <div className="App">
                 <Navbar />
                 <Route exact path="/" component={Landing} />

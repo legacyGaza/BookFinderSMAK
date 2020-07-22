@@ -13,7 +13,6 @@ class Register extends Component {
       last_name: '',
       email: '',
       password: '',
-      errors: {},
     };
 
     this.onChange = this.onChange.bind(this);
@@ -44,7 +43,7 @@ class Register extends Component {
         alert(message);
 
         if (message === 'Registered') {
-          this.props.history.push('/expenses');
+          this.props.history.push('/AddExpenses');
         }
       })
       .catch((err) => {
