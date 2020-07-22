@@ -3,6 +3,7 @@
 import React, { Fragment } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
+import $ from 'jquery';
 
 //Create Expenses Component
 class Expenses extends React.Component {
@@ -13,6 +14,7 @@ class Expenses extends React.Component {
       email: '',
       value: '',
       expensetype: '',
+      total: 0,
     };
   }
 
@@ -38,47 +40,15 @@ class Expenses extends React.Component {
         console.log(err);
         alert('Something went wrong');
       });
-  } 
+  }
 
   ////////////////////////////////////////
 
   render() {
+    this.state.total = 0;
     return (
       // general form for expenses compo
       <Fragment>
-        <div className='container'>
-          <form>
-            <button
-              variant='btn btn-success'
-              onClick={this.handlerSubmit.bind(this)}
-            >
-              {' '}
-              Refresh{' '}
-            </button>
-            <table style={{ width: '100%' }}>
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>type</th>
-                  <th>Amount</th>
-                  <th>note</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.expenses.map((element, index) => {
-                  return (
-                    <tr key={index}>
-                      <td>{element.item}</td>
-                      <td>{element.expensetype}</td>
-                      <td>{element.amount}</td>
-                      <td>{element.description}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </form>
-        </div>
         {/* second form */}
         <div className='container'>
           <form onSubmit={this.handlerSubmit.bind(this)}>
@@ -88,6 +58,8 @@ class Expenses extends React.Component {
               value={this.state.expensetype}
               onChange={this.changeHandler.bind(this)}
             >
+              <option value=''>select</option>
+              <option value='all'>all</option>
               <option value='expensetype'>Type</option>
               <option value='item'>Item</option>
               <option value='amount'>Amount</option>
@@ -100,22 +72,50 @@ class Expenses extends React.Component {
               onChange={this.changeHandler.bind(this)}
             ></input>
             &nbsp;
-            <button onClick={this.handlerSubmit.bind(this)}>Search</button>
+            <button>Search</button> &nbsp;
+            {/* <span> Total</span> <span>{this.state.total}</span> */}
             <br />
-            <table style={{ width: '100%' }}>
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>type</th>
-                  <th>Amount</th>
-                  <th>note</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.expenses.map((element, index) => {
-                  if (Number(this.state.value)) {
-                    var amount = Number(this.state.value);
-                    if (element[this.state.expensetype] === amount) {
+            <div className='table'>
+              <table style={{ width: '100%' }}>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>type</th>
+                    <th>Amount</th>
+                    <th>note</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.expenses.map((element, index) => {
+                    if (this.state.expensetype === 'all') {
+                      this.state.total += element.amount;
+                      return (
+                        <tr key={index}>
+                          <td>{element.item}</td>
+                          <td>{element.expensetype}</td>
+                          <td>{element.amount}</td>
+                          <td>{element.description}</td>
+                        </tr>
+                      );
+                    } else if (Number(this.state.value)) {
+                      // this.state.total = 0;
+                      this.state.total += element.amount;
+                      var amount = Number(this.state.value);
+                      if (element[this.state.expensetype] === amount) {
+                        return (
+                          <tr key={index}>
+                            <td>{element.item}</td>
+                            <td>{element.expensetype}</td>
+                            <td>{element.amount}</td>
+                            <td>{element.description}</td>
+                          </tr>
+                        );
+                      }
+                    } else if (
+                      element[this.state.expensetype] === this.state.value
+                    ) {
+                      // this.state.total = 0;
+                      this.state.total += element.amount;
                       return (
                         <tr key={index}>
                           <td>{element.item}</td>
@@ -125,19 +125,12 @@ class Expenses extends React.Component {
                         </tr>
                       );
                     }
-                  } else if (element[this.state.expensetype] === this.state.value) {
-                    return (
-                      <tr key={index}>
-                        <td>{element.item}</td>
-                        <td>{element.expensetype}</td>
-                        <td>{element.amount}</td>
-                        <td>{element.description}</td>
-                      </tr>
-                    );
-                  }
-                })}
-              </tbody>
-            </table>
+                  })}
+                </tbody>
+              </table>
+              <br/>
+              <span> Total &nbsp;&nbsp;{this.state.total}</span>
+            </div>
           </form>
         </div>
       </Fragment>

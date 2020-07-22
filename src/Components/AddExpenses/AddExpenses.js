@@ -14,7 +14,6 @@ class Expenses extends React.Component {
       amount: '',
       date: '',
       description: '',
-     
     };
   }
   // changeHandler function
@@ -26,7 +25,7 @@ class Expenses extends React.Component {
 
   //submitHandler function
   submitHandler(event) {
-    var namount = Number(this.state.amount)
+    var namount = Number(this.state.amount);
     event.preventDefault();
     var email = localStorage.getItem('useremail');
     axios
@@ -46,29 +45,30 @@ class Expenses extends React.Component {
       .catch((err) => {
         console.log('falure ====>', err);
       });
-    // this.setState({
-    //   expensetype: '',
-    //   amount: '',
-    //   date: '',
-    //   description: '',
-    //   item: '',
-    // });
+    this.setState({
+      expensetype: '',
+      amount: '',
+      date: '',
+      description: '',
+      item: '',
+    });
   }
 
   render() {
     return (
       // general form for add expenses compo
-      <form onSubmit={this.submitHandler.bind(this)}>
+      <form>
         <div className='myDiv'>
-          <label> Types: </label>
+          <h1>Add your expenses</h1>
           <br />
           <select
             type='text'
             name='expensetype'
             value={this.state.expensetype}
             onChange={this.changeHandler.bind(this)}
+            className='type'
           >
-            <option value='none'> </option>
+            <option value=''>Type </option>
             <option value='Food'>Food</option>
             <option value='Clothes'>Clothes</option>
             <option value='Transportation'>Transportation</option>
@@ -76,8 +76,7 @@ class Expenses extends React.Component {
             <option value='Other'>Other</option>
           </select>
           <br />
-          <label> Date : </label>
-          <br />
+
           {/* date input for expenses*/}
           <input
             type='date'
@@ -87,8 +86,7 @@ class Expenses extends React.Component {
             placeholder='Enter date...'
           ></input>
           <br />
-          <label> Item </label>
-          <br />
+
           <input
             type='text'
             name='item'
@@ -97,9 +95,7 @@ class Expenses extends React.Component {
             placeholder='Enter item'
           ></input>
           <br />
-          {/* description input for expenses*/}
-          <label> Amount : </label>
-          <br />
+
           {/* amount input for expenses*/}
           <input
             type='number'
@@ -108,20 +104,28 @@ class Expenses extends React.Component {
             onChange={this.changeHandler.bind(this)}
             placeholder='Enter amount...'
           ></input>
-          <br /> <br />
-          <label>Note</label>
           <br />
-          <input
+
+          <textarea
             type='text'
             name='description'
             value={this.state.description}
             onChange={this.changeHandler.bind(this)}
             placeholder='add a note'
-          ></input>
+          ></textarea>
           <br />
           <br />
           {/* Add transaction button send to db*/}
-          <button variant='btn btn-success'> Add transaction</button>
+          <button
+            variant='btn btn-success'
+            onClick={this.submitHandler.bind(this)}
+          >
+            Add
+          </button>
+
+          <button>
+            <a href='/expenses'>Show</a>
+          </button>
         </div>
       </form>
     );

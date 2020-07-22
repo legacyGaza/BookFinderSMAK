@@ -177,19 +177,7 @@ app.get('/expenses/:email', async (req, res) => {
 
 //////////////////////////////////////////////////////////////////
 
-app.get('/search/:email', async (req, res) => {
-  const { email } = req.params;
-  try {
-    var user = await users.findOne({ email: email });
-    if (user) {
-      res.send(user.expenses);
-    } else {
-      res.send('could not find data');
-    }
-  } catch (error) {
-    console.log('error in get all function ===>', error);
-  }
-});
+
 // get request for profile
 // app.get('/profile', (req, res) => {
 //   var decoded = jwt.verify(
