@@ -2,8 +2,7 @@
 // import modules
 import React from 'react';
 import axios from 'axios';
-import jwt_decode from 'jwt-decode';
-// import { Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 // Create Expenses Component
 class Expenses extends React.Component {
   constructor(props) {
@@ -14,8 +13,20 @@ class Expenses extends React.Component {
       amount: '',
       date: '',
       description: '',
+      list: [],
     };
   }
+
+  componentDidMount() {
+    if (this.props.location.state !== undefined) {
+      const { list } = this.props.location.state;
+      console.log(list, '<============================');
+      this.setState({
+        list: list,
+      });
+    }
+  }
+
   // changeHandler function
   changeHandler(event) {
     this.setState({
@@ -59,7 +70,6 @@ class Expenses extends React.Component {
       // general form for add expenses compo
       <form>
         <div className='myDiv'>
-          <h1>Add your expenses</h1>
           <br />
           <select
             type='text'
@@ -120,11 +130,23 @@ class Expenses extends React.Component {
             variant='btn btn-success'
             onClick={this.submitHandler.bind(this)}
           >
-            Add
+            <a>Add</a>
           </button>
 
           <button>
             <a href='/expenses'>Show</a>
+          </button>
+          <button>
+            <Link
+              to={{
+                pathname: '/list',
+                state: {
+                  list: this.state.list,
+                },
+              }}
+            >
+              To bye
+            </Link>
           </button>
         </div>
       </form>

@@ -1,5 +1,5 @@
 html {
-  background: url("./dark.jpg") no-repeat center center fixed;
+  background: url('./dark.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -11,7 +11,7 @@ body {
 
 .container {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 146px;
 }
 .land-title {
   color: white;
@@ -48,7 +48,7 @@ button {
   background-color: #d2db53;
   border: none;
   color: rgb(0, 0, 0);
-  padding: 14px 32px;
+  padding: 5px 29px;
   text-align: center;
   font-size: 16px;
   margin: 4px 2px;
@@ -85,7 +85,6 @@ table {
   background-color: rgb(218, 212, 212);
   border-collapse: collapse;
   text-align: center;
-  
 }
 th,
 td {
@@ -95,7 +94,7 @@ td {
   height: 10px;
   padding: 10px;
 }
-td{
+td {
   font-size: 18px;
 }
 
@@ -138,23 +137,23 @@ a {
   color: black;
 }
 
-
-/* #tbl, #tbl2{
+/* table {
   font-size: 16px;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
 }
 
-
-#tbl,#tbl2, td, th{
+table,
+td,
+th {
   border: 1px solid #ddd;
-   padding: 8px;
-   margin-top: 70px;
+  padding: 8px;
+  margin-top: 70px;
 }
 
-tr:nth-child(even){
+tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 tr:hover {
@@ -164,7 +163,7 @@ tr:hover {
 th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align:  center;
+  text-align: center;
   background-color: darkcyan;
   color: white;
 } */

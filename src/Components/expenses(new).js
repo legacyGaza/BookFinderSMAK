@@ -63,7 +63,7 @@ class Expenses extends React.Component {
               <option value='expensetype'>Type</option>
               <option value='item'>Item</option>
               <option value='amount'>Amount</option>
-            </select>
+            </select>{' '}
             <input
               type='text'
               name='value'
@@ -72,10 +72,15 @@ class Expenses extends React.Component {
               onChange={this.changeHandler.bind(this)}
             ></input>
             &nbsp;
-            <button>Search</button> &nbsp;
+            <button>
+              <a>Search</a>
+            </button>{' '}
+            &nbsp;
             {/* <span> Total</span> <span>{this.state.total}</span> */}
             <br />
             <div className='table'>
+              <br />
+              <br />
               <table style={{ width: '100%' }}>
                 <thead>
                   <tr>
@@ -83,11 +88,13 @@ class Expenses extends React.Component {
                     <th>type</th>
                     <th>Amount</th>
                     <th>note</th>
+                    <th>Date</th>
                   </tr>
                 </thead>
                 <tbody>
                   {this.state.expenses.map((element, index) => {
                     if (this.state.expensetype === 'all') {
+                      var date = element.date.substring(0, 10);
                       this.state.total += element.amount;
                       return (
                         <tr key={index}>
@@ -95,10 +102,11 @@ class Expenses extends React.Component {
                           <td>{element.expensetype}</td>
                           <td>{element.amount}</td>
                           <td>{element.description}</td>
+                          <td>{date}</td>
                         </tr>
                       );
                     } else if (Number(this.state.value)) {
-                      // this.state.total = 0;
+                      var date = element.date.substring(0, 10);
                       this.state.total += element.amount;
                       var amount = Number(this.state.value);
                       if (element[this.state.expensetype] === amount) {
@@ -108,13 +116,14 @@ class Expenses extends React.Component {
                             <td>{element.expensetype}</td>
                             <td>{element.amount}</td>
                             <td>{element.description}</td>
+                            <td>{date}</td>
                           </tr>
                         );
                       }
                     } else if (
                       element[this.state.expensetype] === this.state.value
                     ) {
-                      // this.state.total = 0;
+                      var date = element.date.substring(0, 10);
                       this.state.total += element.amount;
                       return (
                         <tr key={index}>
@@ -122,13 +131,14 @@ class Expenses extends React.Component {
                           <td>{element.expensetype}</td>
                           <td>{element.amount}</td>
                           <td>{element.description}</td>
+                          <td>{date}</td>
                         </tr>
                       );
                     }
                   })}
                 </tbody>
               </table>
-              <br/>
+              <br />
               <span> Total &nbsp;&nbsp;{this.state.total}</span>
             </div>
           </form>
