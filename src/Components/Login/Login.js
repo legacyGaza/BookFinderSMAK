@@ -52,12 +52,13 @@ class Login extends Component {
           <div className='col-md-6 mt-5 mx-auto'>
             <form noValidate onSubmit={this.onSubmit}>
               <div className='form-group'>
+              
                 <br />
                 <input
                   type='email'
                   className='form-control'
                   name='email'
-                  placeholder='Email'
+                  placeholder='Email Address'
                   value={this.state.email}
                   onChange={this.onChange}
                 />

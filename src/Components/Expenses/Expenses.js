@@ -41,23 +41,6 @@ class Expenses extends React.Component {
   } 
 
   ////////////////////////////////////////
-  handlerSubmit2(event) {
-    event.preventDefault();
-    var email = localStorage.getItem('useremail');
-    axios
-      .get(`http://localhost:4040/search/${email}`)
-      .then((res) => {
-        const expenses = res.data;
-        console.log(expenses);
-        this.setState({
-          expenses: expenses,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        alert('Something went wrong');
-      });
-  }
 
   render() {
     return (
@@ -78,7 +61,7 @@ class Expenses extends React.Component {
                   <th>Item</th>
                   <th>type</th>
                   <th>Amount</th>
-                  <th>Descritption</th>
+                  <th>note</th>
                 </tr>
               </thead>
               <tbody>
@@ -117,7 +100,7 @@ class Expenses extends React.Component {
               onChange={this.changeHandler.bind(this)}
             ></input>
             &nbsp;
-            <button onClick={this.handlerSubmit2.bind(this)}>Search</button>
+            <button onClick={this.handlerSubmit.bind(this)}>Search</button>
             <br />
             <table style={{ width: '100%' }}>
               <thead>
@@ -125,7 +108,7 @@ class Expenses extends React.Component {
                   <th>Item</th>
                   <th>type</th>
                   <th>Amount</th>
-                  <th>Descritption</th>
+                  <th>note</th>
                 </tr>
               </thead>
               <tbody>

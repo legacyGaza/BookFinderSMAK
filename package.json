@@ -14,6 +14,7 @@
     "firebase": "^7.16.0",
     "gh-pages": "^3.1.0",
     "jest": "24.9.0",
+    "jquery": "^3.5.1",
     "jest-environment-puppeteer": "^4.4.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
@@ -33,10 +34,9 @@
     "start": "node src/server/index.js",
     "s": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --detectOpenHandles",
     "eject": "react-scripts eject",
     "server": "nodemon src/server/start.js",
-    "testj": "jest --detectOpenHandles",
     "test:watch": "jest --watch"
   },
   "eslintConfig": {

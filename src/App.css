@@ -1,5 +1,5 @@
 html {
-  background: url("./dark.jpg") no-repeat center center fixed;
+  background: url('./dark.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -11,23 +11,33 @@ body {
 
 .container {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 146px;
 }
 .land-title {
   color: white;
 }
-
+h1 {
+  color: white;
+}
 input {
   width: 30%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
 }
-
+textarea {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  height: 100px;
+}
 label {
+  color: rgb(240, 233, 233);
   color: rgb(255, 255, 255);
   text-align: left;
   font-size: 25px;
+  text-align: right;
 }
 
 input:focus {
@@ -38,7 +48,7 @@ button {
   background-color: #d2db53;
   border: none;
   color: rgb(0, 0, 0);
-  padding: 14px 32px;
+  padding: 5px 29px;
   text-align: center;
   font-size: 16px;
   margin: 4px 2px;
@@ -64,6 +74,47 @@ select {
   box-sizing: border-box;
 }
 
+.type {
+  width: 10%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  margin-right: 300px;
+}
+table {
+  background-color: rgb(218, 212, 212);
+  border-collapse: collapse;
+  text-align: center;
+}
+th,
+td {
+  color: black;
+  border-right: solid black;
+  border-bottom: solid black;
+  height: 10px;
+  padding: 10px;
+}
+td {
+  font-size: 18px;
+}
+
+tbody tr {
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  color: #808080;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+span {
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+  font-family: OpenSans-Regular;
+  background-color: rgb(218, 212, 212);
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+}
 header {
   background-color: rgb(248, 248, 248, 0.3);
   position: sticky;
@@ -85,3 +136,34 @@ header {
 a {
   color: black;
 }
+
+/* table {
+  font-size: 16px;
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table,
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  margin-top: 70px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+tr:hover {
+  background-color: #ddd;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: darkcyan;
+  color: white;
+} */

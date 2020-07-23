@@ -57,7 +57,7 @@ class Register extends Component {
           <div className='col-md-6 mt-5 mx-auto'>
             <form noValidate onSubmit={this.onSubmit}>
               <div className='form-group'>
-                <br />
+              
                 <input
                   type='text'
                   className='form-control'
@@ -68,7 +68,7 @@ class Register extends Component {
                 />
               </div>
               <div className='form-group'>
-                < br/>
+                
                 <input
                   type='text'
                   className='form-control'
@@ -79,7 +79,7 @@ class Register extends Component {
                 />
               </div>
               <div className='form-group'>
-                <br />
+                
                 <input
                   type='email'
                   className='form-control'
@@ -90,7 +90,7 @@ class Register extends Component {
                 />
               </div>
               <div className='form-group'>
-                < br/>
+              
                 <input
                   type='password'
                   className='form-control'

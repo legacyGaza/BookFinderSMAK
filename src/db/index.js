@@ -20,23 +20,21 @@ mongoose
 ////////////////////////////////////////////////////////
 
 let UserSchema = mongoose.Schema({
-  first_name: { type: String },
-  last_name: { type: String },
+  first_name: { type: String, required: true },
+  last_name: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
   date: { type: Date, default: Date.now },
   expenses: [
     {
       date: { type: Date, default: Date.now },
-      expensetype: String,
-      item: String,
-      amount: Number,
-      description: String,
+      expensetype: { type: String, required: true },
+      item: { type: String, required: true },
+      amount: { type: Number, required: true },
+      description: { type: String, required: true },
     },
   ],
 });
-
-
 
 let users = mongoose.model('users', UserSchema);
 module.exports.users = users;

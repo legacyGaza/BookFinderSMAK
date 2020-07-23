@@ -3,9 +3,9 @@ import React from 'react'
 const About = () => (
     <div style={{ color: "white", fontSize: "18px" }}>
         <h1> Developers:</h1>
-        <label> Mohammed Hourani  >></label>
-        <label> Ahmed Ibai  >></label>
-        <label> Sara Dahman  >></label>
+        <label> Mohammed Hourani  </label>
+        <label> Ahmed Ibai  </label>
+        <label> Sara Dahman  </label>
         <label> Karam Qaoud </label>
         <footer >
             <p>Experiencing a difficulity?</p>

@@ -25,7 +25,7 @@ class HomeLand extends Component {
                     </button>
 
                     <button>
-                        <a href='/Expenses'>Expenses</a>
+                        <a href='/expenses'>Expenses</a>
                     </button>
 
                     <button>

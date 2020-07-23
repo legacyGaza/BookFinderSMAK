@@ -8,13 +8,13 @@ class Navbar extends React.Component {
         <Fragment>
           <div>
             <ul className='navbar'>
-              <li>
+              <li className='li'>
                 <a href={localStorage.useremail ? '/homeLand' : '/'}>Home</a>
               </li>
-              <li>
+              <li className='li'>
                 <a href='/about'>About</a>
               </li>
-              <li>
+              <li className='li'>
                 <a href='/contact'>Contact</a>
               </li>
             </ul>
