@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import $ from 'jquery';
 
 class Tobye extends React.Component {
   state = {
@@ -9,13 +10,20 @@ class Tobye extends React.Component {
   };
 
   componentDidMount() {
-    if (this.props.location.state !== undefined) {
-      const { list } = this.props.location.state;
-      console.log('=================================================>', list);
-      this.setState({
-        list: list,
-      });
-    }
+    var list1 = localStorage.getItem('list');
+    var list2 = list1.split(',');
+    console.log(list2);
+
+    this.setState({
+      list: list2,
+    });
+    // if (this.props.location.state !== undefined) {
+    //   const { list } = this.props.location.state;
+    //   console.log('=================================================>', list);
+    //   this.setState({
+    //     list: list,
+    //   });
+    // }
   }
 
   add(e) {
@@ -23,10 +31,18 @@ class Tobye extends React.Component {
     this.setState({
       text: '',
     });
+    localStorage.setItem('list', this.state.list);
+    this.componentDidMount();
   }
 
   delete(e) {
-    this.state.list.splice(e.target.index, 1);
+    console.log(e.target.innerText);
+    var val = `${e.target.innerText}`;
+
+    var index = this.state.list.indexOf(val);
+    this.state.list.splice(index, 1);
+
+    localStorage.setItem('list', this.state.list);
   }
 
   changeHandler(event) {

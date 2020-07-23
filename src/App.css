@@ -46,7 +46,7 @@ input:focus {
 }
 
 button {
-  background-color: rgb(160, 255, 71);
+  background-color: rgb(128, 201, 46);
   border: none;
   color: rgb(0, 0, 0);
   padding: 5px 29px;
@@ -83,7 +83,7 @@ select {
   margin-right: 300px;
 }
 table {
-  background-color: rgb(218, 212, 212);
+  background-color: rgba(247, 238, 238, 0.7);
   border-collapse: collapse;
   text-align: center;
 }
@@ -111,7 +111,7 @@ span {
   color: rgb(0, 0, 0);
   font-size: 25px;
   font-family: OpenSans-Regular;
-  background-color: rgb(218, 212, 212);
+  background-color: rgba(250, 245, 245);
   padding: 10px;
   font-weight: bold;
   border-radius: 5px;
@@ -131,8 +131,8 @@ header {
 
 .navbar a {
   color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-    border-radius: 10px;
+  background-color: rgb(161, 196, 167);
+  border-radius: 5px;
 }
 
 a {
@@ -170,6 +170,15 @@ th {
   color: white;
 } */
 
+.list {
+  background-color: rgba(225, 225, 225, 0.7);
+  margin-bottom: 10px;
+  padding: 10px;
+  margin-left: 400px;
+  margin-right: 400px;
+  font-size: 25px;
+  font-weight: bold;
+}
 .email {
   text-align: center;
   background-color: rgb(185, 231, 141);
@@ -184,10 +193,15 @@ th {
 }
 
 .infoTable {
-  margin-left: 14cm;
-  background-color: rgb(199, 253, 147);
+  border-collapse: collapse;
+  margin-left: 16cm;
+  background-color: rgb(199, 253, 147, 0.7);
 }
 
 .li {
   border-radius: 10px;
+}
+
+.land-title{
+  font-size: 60px;
 }

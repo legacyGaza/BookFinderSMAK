@@ -78,7 +78,7 @@ class Login extends Component {
                 type='submit'
                 className='btn btn-lg btn-primary btn-block'
               >
-                Sign in
+                <a>Log In</a>
               </button>
             </form>
           </div>

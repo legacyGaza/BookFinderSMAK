@@ -103,7 +103,7 @@ class Register extends Component {
               <button
                 type='submit'
               >
-                Register!
+                <a>Register</a>
               </button>
             </form>
           </div>
