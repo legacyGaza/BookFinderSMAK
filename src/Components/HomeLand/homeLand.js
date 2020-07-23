@@ -14,7 +14,7 @@ class HomeLand extends Component {
             <div className='container'>
                 <div>
                     <h1 className='land-title'>Hello there!</h1>
-                    <p style={{ color: "white" }}><b>Let's keep track of today's expenses!</b></p>
+                    <p style={{ color: "white" }}><b>Let's keep track of today's expenses!</b></p><br /><br />
 
                     <button>
                         <a href='/user'>My Info</a>

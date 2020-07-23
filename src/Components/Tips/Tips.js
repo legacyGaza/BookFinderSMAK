@@ -23,8 +23,8 @@ class Tips extends Component {
         Travel Expenses<br />
         Memberships<br />
         Prescriptions<br />
-        Pet Care<br />
-        Identifying common, recurring expenses, like rent or mortgage payments, can help you plan your spending and create a budget<br />
+        Pet Care<br /><br />
+        Identifying common, recurring expenses, like rent or mortgage payments, can help you plan your spending and create a budget.<br />
         Have fun planning    ; )
       </p>
     </div>;

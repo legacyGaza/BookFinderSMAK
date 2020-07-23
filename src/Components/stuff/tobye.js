@@ -38,8 +38,9 @@ class Tobye extends React.Component {
   delete(e) {
     console.log(e.target.innerText);
     var val = `${e.target.innerText}`;
-    
-    this.state.list.splice(val, 1);
+
+    var index = this.state.list.indexOf(val);
+    this.state.list.splice(index, 1);
 
     localStorage.setItem('list', this.state.list);
   }
