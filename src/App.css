@@ -1,5 +1,6 @@
 html {
-  background: url('./dark.jpg') no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -45,14 +46,13 @@ input:focus {
 }
 
 button {
-  background-color: #d2db53;
+  background-color: rgb(160, 255, 71);
   border: none;
   color: rgb(0, 0, 0);
   padding: 5px 29px;
   text-align: center;
   font-size: 16px;
   margin: 4px 2px;
-  opacity: 0.8;
   transition: 0.3s;
   display: inline-block;
   text-decoration: none;
@@ -60,6 +60,7 @@ button {
 }
 
 button:hover {
+  background-color: white;
   opacity: 1;
 }
 
@@ -116,7 +117,7 @@ span {
   border-radius: 5px;
 }
 header {
-  background-color: rgb(248, 248, 248, 0.3);
+  /* background-color: rgb(248, 248, 248, 0.3); */
   position: sticky;
   top: 0px;
   padding: 8px;
@@ -130,7 +131,8 @@ header {
 
 .navbar a {
   color: rgb(0, 0, 0);
-  background-color: #d2db53;
+  background-color: rgb(255, 255, 255);
+    border-radius: 10px;
 }
 
 a {
@@ -167,3 +169,25 @@ th {
   background-color: darkcyan;
   color: white;
 } */
+
+.email {
+  text-align: center;
+  background-color: rgb(185, 231, 141);
+  margin-left: 13cm;
+  margin-right: 13cm;
+  opacity: 1;
+  border-radius: 10px;
+}
+
+.email:hover {
+  background-color: white;
+}
+
+.infoTable {
+  margin-left: 14cm;
+  background-color: rgb(199, 253, 147);
+}
+
+.li {
+  border-radius: 10px;
+}
