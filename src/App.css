@@ -82,7 +82,7 @@ select {
   margin-right: 300px;
 }
 table {
-  background-color: rgb(218, 212, 212);
+  background-color: rgba(247, 238, 238, 0.7);
   border-collapse: collapse;
   text-align: center;
 }
@@ -110,7 +110,7 @@ span {
   color: rgb(0, 0, 0);
   font-size: 25px;
   font-family: OpenSans-Regular;
-  background-color: rgb(218, 212, 212);
+  background-color: rgba(250, 245, 245);
   padding: 10px;
   font-weight: bold;
   border-radius: 5px;
@@ -167,3 +167,15 @@ th {
   background-color: darkcyan;
   color: white;
 } */
+
+
+
+.list{
+  background-color: rgba(225,225,225,0.7);
+  margin-bottom: 10px;
+  padding: 10px;
+  margin-left: 400px;
+  margin-right: 400px;
+  font-size: 25px;
+  font-weight: bold;
+}

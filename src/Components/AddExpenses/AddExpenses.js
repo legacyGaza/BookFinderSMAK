@@ -145,7 +145,7 @@ class Expenses extends React.Component {
                 },
               }}
             >
-              To bye
+              To spend
             </Link>
           </button>
         </div>
