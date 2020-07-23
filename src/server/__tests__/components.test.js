@@ -3,7 +3,6 @@ import Enzyme, { configure, shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 import React from 'react';
-
 import Register from './../../Components/Register/Register';
 import AddExpenses from './../../Components/AddExpenses/AddExpenses';
 import Login from './../../Components/Login/Login';
