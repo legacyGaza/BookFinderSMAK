@@ -1,27 +1,30 @@
-// Profile Component
-// import modules
+// User Component
+// import necessary modules
 import React, { Component } from "react";
 import axios from 'axios';
 
 
 
-//Create User Component
-let first_name;
-let last_name;
+// User Component
 class User extends Component {
-  constructor() {
-    super();
+  state = {
+    first_name: "",
+    last_name: ""
   }
   componentDidMount() {
+    //Sends a GET request to get user info
     axios.get('http://localhost:4040/user', {
       params: {
         email: localStorage.useremail
       }
     })
       .then((res) => {
-        first_name = res.data.first_name;
-        last_name = res.data.last_name;
-        console.log(first_name, last_name)
+        this.setState(
+          {
+            first_name: res.data.first_name,
+            last_name: res.data.last_name
+          }
+        )
       }).catch((error) => {
         console.log(error)
       });
@@ -30,35 +33,31 @@ class User extends Component {
 
   //Rendering User info form
   render() {
-    if (first_name === undefined || last_name === undefined) {
-      return <div>Loading ....</div>
-    } else {
-      return (
+    return (
+      <div>
         <div>
           <div>
-            <div>
-              <h1>User info</h1>
-            </div>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Fist Name</td>
-                  <td>{first_name}</td>
-                </tr>
-                <tr>
-                  <td>Last Name</td>
-                  <td>{last_name}</td>
-                </tr>
-                <tr>
-                  <td>Email</td>
-                  <td>{localStorage.useremail}</td>
-                </tr>
-              </tbody>
-            </table>
+            <h1>My info</h1>
           </div>
+          <table className="infoTable">
+            <tbody>
+              <tr>
+                <td>Fist Name</td>
+                <td>{this.state.first_name === undefined ? "Loading ...": this.state.first_name}</td>
+              </tr>
+              <tr>
+                <td>Last Name</td>
+                <td>{this.state.last_name === undefined ? "Loading ..." : this.state.last_name}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>{localStorage.useremail}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
 

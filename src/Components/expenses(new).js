@@ -2,8 +2,6 @@
 // import modules
 import React, { Fragment } from 'react';
 import axios from 'axios';
-import jwt_decode from 'jwt-decode';
-import $ from 'jquery';
 
 //Create Expenses Component
 class Expenses extends React.Component {
